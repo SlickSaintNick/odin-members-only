@@ -3,6 +3,11 @@
 <% @posts.each do |post| %>
   <h2><%= post.title %></h2>
   <p><%= post.body %></p>
-
+  <% if user_signed_in? %>
+    <p><%= post.user.email %></p>
+  <% end %>
+  <br><br>
+  <%= button_to "Sign in", new_user_session_path %>
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
 <% end %>
   

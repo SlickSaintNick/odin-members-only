@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+        sessions: 'users/sessions'
+      }
   # get 'home/index'
-  root 'home#index'
+  root 'posts#index'
   resources :posts, only: [:new, :create, :index]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
